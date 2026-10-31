@@ -31,7 +31,8 @@ RUN userdel -r ubuntu 2>/dev/null; useradd -m -s /bin/bash -u 1000 seminar \
 COPY files/seminar-einrichten files/seminar-check files/seminar-hilfe /usr/local/bin/
 COPY files/bashrc-seminar.sh /etc/profile.d/seminar.sh
 COPY files/gitconfig-system /etc/gitconfig
-RUN chmod +x /usr/local/bin/seminar-* \
+RUN chmod 755 /usr/local/bin/seminar-* \
+ && chmod 644 /etc/profile.d/seminar.sh /etc/gitconfig \
  && echo '. /etc/profile.d/seminar.sh' >> /etc/bash.bashrc
 
 ENV LANG=de_DE.UTF-8 SEMINAR=/unterlagen EDITOR=nano
