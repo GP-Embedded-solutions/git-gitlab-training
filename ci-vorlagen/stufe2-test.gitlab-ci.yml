@@ -1,0 +1,9 @@
+# Stufe 2: echte Tests bei jedem Push
+stages: [test]
+
+test:
+  stage: test
+  image: python:3.12-slim
+  script:
+    - pip install -r requirements.txt
+    - python -m pytest -v

@@ -1,0 +1,9 @@
+# Stufe 1: Hello Pipeline – vordefinierte Variablen kennenlernen
+# Lernpunkt: Zeilen mit ": " IMMER in Anführungszeichen setzen, sonst liest YAML sie als Schlüssel/Wert!
+hello:
+  image: alpine:3.20
+  script:
+    - 'echo "Projekt:  $CI_PROJECT_PATH"'
+    - 'echo "Branch:   $CI_COMMIT_BRANCH"'
+    - 'echo "Commit:   $CI_COMMIT_SHORT_SHA von $GITLAB_USER_NAME"'
+    - 'echo "Quelle:   $CI_PIPELINE_SOURCE"'

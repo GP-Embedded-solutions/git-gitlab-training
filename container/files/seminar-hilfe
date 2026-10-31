@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+cat <<TXT
+🧰 Seminar-Container – Übersicht
+  seminar-einrichten   Name, E-Mail, SSH-Schlüssel, Gruppenpfad einrichten (einmalig)
+  seminar-check        Prüft, ob alles bereit ist
+  seminar-hilfe        diese Übersicht
+
+  Unterlagen (nur lesend):  \$SEMINAR = ${SEMINAR:-/unterlagen}
+  Arbeitsordner:            ~/seminar
+  Ihre GitLab-Gruppe:       \$GRUPPE = ${GRUPPE:-(noch nicht eingerichtet)}
+  Editoren:                 nano (Strg+O speichern, Strg+X beenden) · vim · lazygit · tig
+TXT

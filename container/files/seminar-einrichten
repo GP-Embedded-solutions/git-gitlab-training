@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# Richtet Git, SSH-Schlüssel und die Seminar-Gruppe ein. Wiederholbar.
+# Ohne Rückfragen (z. B. für Tests): NAME=… EMAIL=… GRUPPE=… GITLAB_HOST=… seminar-einrichten
+set -euo pipefail
+HOST="${GITLAB_HOST:-gitlab.com}"
+frage() { local var=$1 text=$2 vorgabe=${3:-}; local wert="${!var:-}"
+  if [ -z "$wert" ]; then read -rp "$text${vorgabe:+ [$vorgabe]}: " wert; wert="${wert:-$vorgabe}"; fi
+  printf -v "$var" '%s' "$wert"; }
+echo "🔧 Seminar einrichten"
+frage NAME   "Ihr Name (Vorname Nachname)" "$(git config --global user.name 2>/dev/null || true)"
+frage EMAIL  "Ihre E-Mail-Adresse"         "$(git config --global user.email 2>/dev/null || true)"
+frage GRUPPE "Gruppenpfad auf $HOST (vom Trainer)" "${GRUPPE:-}"
+[ -n "$NAME" ] && [ -n "$EMAIL" ] && [ -n "$GRUPPE" ] || { echo "❌ Name, E-Mail und Gruppenpfad werden benötigt."; exit 1; }
+git config --global user.name "$NAME"
+git config --global user.email "$EMAIL"
+printf 'export GRUPPE=%q\nexport GITLAB_HOST=%q\n' "$GRUPPE" "$HOST" > "$HOME/.seminar-env"
+echo "✅ Git: $NAME <$EMAIL> · Gruppe: $GRUPPE"
+
+mkdir -p "$HOME/.ssh"; chmod 700 "$HOME/.ssh"
+if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
+  echo "🔑 Erzeuge Ihren SSH-Schlüssel. Bitte eine Passphrase wählen (Sie tippen sie unsichtbar)."
+  ssh-keygen -t ed25519 -C "$EMAIL" -f "$HOME/.ssh/id_ed25519" ${SSH_PASSPHRASE+-N "$SSH_PASSPHRASE"}
+else
+  echo "✅ SSH-Schlüssel ist schon vorhanden (~/.ssh/id_ed25519)"
+fi
+
+# Port 22 gesperrt (Firmennetz)? → gitlab.com bietet SSH über Port 443 an
+KONF="$HOME/.ssh/config"; touch "$KONF"; chmod 600 "$KONF"
+sed -i "/^# seminar-anfang/,/^# seminar-ende/d" "$KONF"
+if [ "$HOST" = gitlab.com ] && ! timeout 5 bash -c "</dev/tcp/gitlab.com/22" 2>/dev/null; then
+  echo "ℹ️  Port 22 ist gesperrt → nutze altssh.gitlab.com über Port 443"
+  printf '# seminar-anfang\nHost gitlab.com\n  HostName altssh.gitlab.com\n  Port 443\n  User git\n  AddKeysToAgent yes\n# seminar-ende\n' >> "$KONF"
+else
+  printf '# seminar-anfang\nHost %s\n  User git\n  AddKeysToAgent yes\n# seminar-ende\n' "$HOST" >> "$KONF"
+fi
+
+echo
+echo "📋 Ihr ÖFFENTLICHER Schlüssel – komplett kopieren und auf $HOST hinterlegen:"
+echo "   Profilbild → Edit profile → SSH Keys → Add new key (mit Ablaufdatum)"
+echo
+cat "$HOME/.ssh/id_ed25519.pub"
+echo
+echo "Danach: neues Terminal öffnen oder 'source ~/.seminar-env', dann 'seminar-check'."

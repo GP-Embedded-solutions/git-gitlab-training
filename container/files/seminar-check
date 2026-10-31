@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Prüft, ob alles fürs Seminar bereit ist. Exit-Code 0 = alles grün.
+[ -f "$HOME/.seminar-env" ] && . "$HOME/.seminar-env"
+HOST="${GITLAB_HOST:-gitlab.com}"; FEHLER=0
+ok()   { echo "✅ $1"; }
+nein() { echo "❌ $1"; echo "   → $2"; FEHLER=1; }
+info() { echo "ℹ️  $1"; }
+for t in git python3 jq ssh; do command -v $t >/dev/null && ok "$t vorhanden" || nein "$t fehlt" "Container neu bauen: ./container/seminar-start.sh --neu-bauen"; done
+python3 -c "import pytest" 2>/dev/null && ok "pytest vorhanden" || nein "pytest fehlt" "pip install pytest pytest-cov"
+command -v ruff >/dev/null && ok "ruff vorhanden" || nein "ruff fehlt" "pip install ruff"
+command -v gitlab-ci-local >/dev/null && ok "gitlab-ci-local vorhanden" || info "gitlab-ci-local fehlt (nur für Übung 8 Profi-Tipp nötig)"
+[ -n "$(git config --global user.name)" ] && [ -n "$(git config --global user.email)" ] \
+  && ok "Git-Identität: $(git config --global user.name) <$(git config --global user.email)>" \
+  || nein "Name/E-Mail fehlen in Git" "seminar-einrichten ausführen"
+[ -n "${GRUPPE:-}" ] && ok "Seminar-Gruppe: $GRUPPE" || nein "Gruppenpfad fehlt" "seminar-einrichten ausführen, danach neues Terminal"
+[ -f "$HOME/.ssh/id_ed25519" ] && ok "SSH-Schlüssel vorhanden" || nein "kein SSH-Schlüssel" "seminar-einrichten ausführen"
+if [ -d "${SEMINAR:-/unterlagen}/tag-1" ]; then ok "Unterlagen unter \$SEMINAR=${SEMINAR:-/unterlagen}"; else nein "Unterlagen nicht gefunden" "Container mit ./container/seminar-start.sh aus dem Repository-Ordner starten"; fi
+if [ "${SEMINAR_OFFLINE:-0}" != 1 ]; then
+  aus=$(ssh -o BatchMode=yes -o ConnectTimeout=8 -o StrictHostKeyChecking=accept-new -T "git@$HOST" 2>&1 || true)
+  case "$aus" in
+    *Welcome*) ok "SSH-Verbindung zu $HOST: ${aus##*Welcome to GitLab, }" ;;
+    *"Permission denied"*) nein "SSH: Schlüssel nicht akzeptiert" "Öffentlichen Schlüssel (cat ~/.ssh/id_ed25519.pub) vollständig auf $HOST hinterlegen. Mit Passphrase? Einmal 'ssh-add' ausführen" ;;
+    *) nein "SSH: keine Verbindung zu $HOST" "Port 22 gesperrt? seminar-einrichten erneut ausführen (nutzt dann Port 443)" ;;
+  esac
+fi
+if docker info >/dev/null 2>&1; then ok "Docker verfügbar (Übung 9 selbst möglich)"; else info "Docker nicht verfügbar – für Übung 9 optional (Start mit --docker)"; fi
+echo
+[ $FEHLER = 0 ] && echo "🎉 Alles bereit fürs Seminar!" || echo "Bitte die ❌-Punkte beheben oder im Vorab-Termin klären."
+exit $FEHLER
