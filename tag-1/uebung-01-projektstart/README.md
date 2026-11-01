@@ -10,7 +10,7 @@
    git config --global user.email
    git config --list --show-origin      # Woher kommt welche Einstellung?
    ```
-2. Startprojekt kopieren:
+2. Startprojekt kopieren (`$SEMINAR` zeigt auf die Unterlagen, `~/seminar` ist Ihr Arbeitsordner):
    ```bash
    cp -r $SEMINAR/starter/calc-service ~/seminar/ && cd ~/seminar/calc-service
    ```
@@ -23,7 +23,7 @@
 
 <details><summary>💡 Hinweis</summary>
 
-Schon versehentlich `__pycache__` gestaged? `git rm -r --cached __pycache__` und erneut committen.
+Schon versehentlich `__pycache__` gestaged? `git rm -r --cached src/__pycache__ tests/__pycache__` und erneut committen.
 </details>
 
 ---

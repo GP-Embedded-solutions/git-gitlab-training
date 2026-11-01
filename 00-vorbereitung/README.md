@@ -23,12 +23,20 @@ Beides liefert **dieselbe Umgebung** mit allen Werkzeugen (git, Python, pytest, 
 1. Auf der GitHub-Seite dieses Repositorys: **Code → Codespaces → Create codespace on main**
 2. Warten, bis das Terminal erscheint (beim ersten Mal einige Minuten)
 
+### So ist der Container aufgebaut
+| Ort | Inhalt |
+|---|---|
+| `~/seminar` | Ihr Arbeitsordner – **anfangs leer**, hier entstehen Ihre Übungsprojekte |
+| `$SEMINAR` (= `/unterlagen`) | diese Unterlagen, nur lesend. Anschauen mit `ls $SEMINAR` |
+| `seminar-einrichten`, `seminar-check`, `seminar-hilfe` | Seminar-Befehle, überall aufrufbar |
+
 ## Schritt 2 – gitlab.com-Account
 1. Kostenlosen Account anlegen: https://gitlab.com/users/sign_up
 2. Falls gitlab.com eine **Identitätsprüfung** anbietet (Telefon oder Kreditkarte, es wird nichts abgebucht): bitte durchführen, sonst können Ihre Pipelines an Tag 2 nicht starten.
 3. Ihren **gitlab.com-Benutzernamen** an den Trainer schicken. Sie werden in die Seminar-Gruppe eingeladen.
 
 ## Schritt 3 – Einrichten im Container
+Alle folgenden Befehle geben Sie **im Container** ein (Eingabezeile beginnt mit `seminar@seminar`):
 ```bash
 seminar-einrichten
 ```

@@ -6,7 +6,7 @@ ARG LAZYGIT_VERSION=0.44.1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
       ca-certificates curl gnupg git openssh-client sudo less locales tzdata \
-      python3 python3-pip python3-venv jq nano neovim tig bash-completion rsync \
+      python3 python3-pip python3-venv python-is-python3 jq nano neovim tig bash-completion rsync \
       docker.io docker-buildx \
  && sed -i 's/# de_DE.UTF-8/de_DE.UTF-8/' /etc/locale.gen && locale-gen \
  && rm -rf /var/lib/apt/lists/*
