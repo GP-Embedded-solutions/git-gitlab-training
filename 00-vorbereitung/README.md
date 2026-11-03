@@ -10,7 +10,7 @@ Beides liefert **dieselbe Umgebung** mit allen Werkzeugen (git, Python, pytest, 
 
 ### Docker
 1. Docker Desktop installieren und starten: Hier der Link für die Installation auf ubuntu: [https://www.docker.com/products/docker-desktop/ (unter Windows mit WSL 2)](https://docs.docker.com/engine/install/ubuntu/). Hier der Link für die Installation von Docker Desktop auf windows: https://docs.docker.com/desktop/setup/install/windows-install/. Schließlich klicken Sie hier für die Installation auf macOS: https://docs.docker.com/desktop/setup/install/mac-install/
-2. Dieses Repository herunterladen (`git clone [<URL>](https://github.com/GP-Embedded-solutions/git-gitlab-training.git)` oder ZIP über den Download-Button) und den Ordner öffnen
+2. Dieses Repository herunterladen (`git clone https://github.com/GP-Embedded-solutions/git-gitlab-training.git)` oder ZIP über den Download-Button) und den Ordner öffnen
 3. Container starten (beim ersten Mal wird er gebaut, das dauert ca. 3–5 Minuten):
    ```bash
    ./container/seminar-start.sh           # macOS / Linux / Git Bash
