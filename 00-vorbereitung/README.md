@@ -2,9 +2,9 @@
 Das Seminar findet **online** statt. Damit wir beide Tage voll für Praxis nutzen können, richten Sie vorab drei Dinge ein: **Ihren Seminar-Container**, **einen gitlab.com-Account** und **Ihren SSH-Schlüssel**. Im kurzen **Vorab-Termin** (Technik-Check, ca. 30 Min.) prüfen wir das gemeinsam.
 
 ## Schritt 1 – Arbeitsumgebung wählen
-| Variante | Wann? | Sie brauchen |
+|  | Wann? | Sie brauchen |
 |---|---|---|
-| **A: Seminar-Container mit Docker** (empfohlen) | Sie dürfen Docker Desktop installieren | Docker Desktop (Windows/macOS) oder Docker Engine (Linux) |
+| **Seminar-Container mit Docker** (empfohlen) | Sie dürfen Docker Desktop installieren | Docker Desktop (Windows/macOS) oder Docker Engine (Linux) |
 
 Beides liefert **dieselbe Umgebung** mit allen Werkzeugen (git, Python, pytest, ruff, jq, SSH, Editoren, lazygit, gitlab-ci-local). Sonst müssen Sie **nichts** installieren.
 
