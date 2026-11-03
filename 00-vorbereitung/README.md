@@ -5,13 +5,12 @@ Das Seminar findet **online** statt. Damit wir beide Tage voll für Praxis nutze
 | Variante | Wann? | Sie brauchen |
 |---|---|---|
 | **A: Seminar-Container mit Docker** (empfohlen) | Sie dürfen Docker Desktop installieren | Docker Desktop (Windows/macOS) oder Docker Engine (Linux) |
-| **B: GitHub Codespaces** (im Browser) | Docker ist nicht erlaubt oder nicht möglich | einen kostenlosen GitHub-Account, einen modernen Browser |
 
 Beides liefert **dieselbe Umgebung** mit allen Werkzeugen (git, Python, pytest, ruff, jq, SSH, Editoren, lazygit, gitlab-ci-local). Sonst müssen Sie **nichts** installieren.
 
-### Variante A – Docker
-1. Docker Desktop installieren und starten: https://www.docker.com/products/docker-desktop/ (unter Windows mit WSL 2)
-2. Dieses Repository herunterladen (`git clone <URL>` oder ZIP über den Download-Button) und den Ordner öffnen
+### Docker
+1. Docker Desktop installieren und starten: Hier der Link für die Installation auf ubuntu: [https://www.docker.com/products/docker-desktop/ (unter Windows mit WSL 2)](https://docs.docker.com/engine/install/ubuntu/). Hier der Link für die Installation von Docker Desktop auf windows: https://docs.docker.com/desktop/setup/install/windows-install/. Schließlich klicken Sie hier für die Installation auf macOS: https://docs.docker.com/desktop/setup/install/mac-install/
+2. Dieses Repository herunterladen (`git clone [<URL>](https://github.com/GP-Embedded-solutions/git-gitlab-training.git)` oder ZIP über den Download-Button) und den Ordner öffnen
 3. Container starten (beim ersten Mal wird er gebaut, das dauert ca. 3–5 Minuten):
    ```bash
    ./container/seminar-start.sh           # macOS / Linux / Git Bash
@@ -19,9 +18,6 @@ Beides liefert **dieselbe Umgebung** mit allen Werkzeugen (git, Python, pytest, 
    ```
    Sie sehen die Begrüßung `🧰 Seminar-Container Git & GitLab`. Beenden mit `exit`. **Ihre Arbeit bleibt erhalten.**
 
-### Variante B – GitHub Codespaces
-1. Auf der GitHub-Seite dieses Repositorys: **Code → Codespaces → Create codespace on main**
-2. Warten, bis das Terminal erscheint (beim ersten Mal einige Minuten)
 
 ### So ist der Container aufgebaut
 | Ort | Inhalt |
@@ -55,4 +51,4 @@ Alles grün (`🎉 Alles bereit fürs Seminar!`)? Perfekt. Ein ❌? Die Meldung 
 - [ ] Bildschirm teilen in der Videokonferenz einmal ausprobieren (in Übungen teilen Sie Ihr Terminal)
 - [ ] Links zum Online-Whiteboard und zum Quiz kommen vom Trainer per Mail
 
-**Firmen-Laptop?** Bitte vorab mit der IT klären: Docker Desktop erlaubt? Zugriff auf gitlab.com (HTTPS und SSH, Port 22 oder 443)? Bei Problemen ist Variante B (Codespaces) der schnellste Ausweg.
+**Firmen-Laptop?** Bitte vorab mit der IT klären: Docker Desktop erlaubt? Zugriff auf gitlab.com (HTTPS und SSH, Port 22 oder 443)? Bei Problemen ist das private Laptop stark empfohlen.
