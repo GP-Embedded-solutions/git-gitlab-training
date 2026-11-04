@@ -1,5 +1,5 @@
 # Übung 3 – Branches & Konflikte
-**Tag 1 · 40 Minuten · Teil A einzeln, Teil B zu zweit im Breakout-Raum**
+**Tag 1 · 40 Minuten · Teil A 👤 SELBST (einzeln), Teil B 👥 ZU ZWEIT im Breakout-Raum**
 
 🎯 **Ziel:** im eigenen Projekt mit Branches und Tags arbeiten; einen Konflikt einmal per Merge und einmal per Rebase lösen.
 
@@ -23,6 +23,7 @@
 3. Lösen → `git add config.ini` → `git commit`. Graph ansehen.
 4. Zurück auf Anfang: `git reset --hard HEAD~1`
 5. Jetzt per Rebase: `git switch feature/perf && git rebase main` → lösen → `git add` → `git rebase --continue`
+   > Meldet Git `Resolved 'config.ini' using previous resolution`? Dann hat sich Git Ihre Lösung aus Schritt 3 gemerkt (`rerere`). Prüfen mit `cat config.ini`, dann trotzdem `git add config.ini` und `git rebase --continue`.
 6. Vergleichen Sie beide Graphen: Welche Historie würden Sie in einem Jahr lieber lesen?
 
 ✅ **Geschafft, wenn:** `calc-service` den Tag `v0.1.0` trägt und Sie beide Konfliktwege gegangen sind.

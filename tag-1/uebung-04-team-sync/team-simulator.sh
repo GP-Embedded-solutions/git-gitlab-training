@@ -24,7 +24,7 @@ case "$cmd" in
     case "$cmd" in
       mitglied)   printf "# Anna\nRolle: Backend-Entwicklerin\nLieblings-Editor: neovim\n" > mitglieder/anna.md
                   git add mitglieder/anna.md && anna commit -qm "docs: Anna stellt sich vor" && git push -q origin main ;;
-      befehl)     sed -i.bak 's/^Lieblings-Git-Befehl des Teams: .*/Lieblings-Git-Befehl des Teams: git reflog/' regeln.md && rm -f regeln.md.bak
+      befehl)     sed -i.bak 's/^Lieblings-Git-Befehl des Teams: .*/Lieblings-Git-Befehl des Teams: git lg/' regeln.md && rm -f regeln.md.bak
                   anna commit -qam "docs: Annas Lieblingsbefehl eingetragen" && git push -q origin main ;;
       branch)     git switch -q -c feature/anna-idee && printf "# Idee von Anna\nWir führen Conventional Commits ein.\n" > ideen/anna.md
                   git add ideen/anna.md && anna commit -qm "docs: Idee Conventional Commits" && git push -q -u origin feature/anna-idee ;;

@@ -1,5 +1,5 @@
 # Übung 6 – Sichtbarkeit, Teilen, Tokens & Keys
-**Tag 2 · 25 Minuten · Rollen verteilt**
+**Tag 2 · 25 Minuten · 👥 GEMEINSAM mit verteilten Rollen (Teil B: 👤 jede/r selbst)**
 
 🎯 **Ziel:** Projekte bewusst teilen und Maschinen sicher Zugriff geben: mit Token, Deploy Token und Deploy Key.
 
@@ -39,9 +39,6 @@
    GIT_SSH_COMMAND="ssh -i ~/.ssh/deploy_calc -o IdentitiesOnly=yes" \
      git clone git@gitlab.com:$GRUPPE/backend/calc-service.git /tmp/deploy-server
    ```
-
-## Teil E – Code Intelligence (Demo Trainer)
-Eine Datei öffnen und über eine Funktion fahren: Was zeigt GitLab an, und was braucht es dafür in der Pipeline?
 
 ## Reflexion (Chat, 2')
 Eine Kollegin verlässt die Firma. Was passiert mit (a) ihrem Personal Access Token, (b) dem Deploy Token, (c) dem Deploy Key? Was heißt das für nächtliche Deployments?

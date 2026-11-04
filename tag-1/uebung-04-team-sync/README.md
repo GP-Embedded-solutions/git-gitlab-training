@@ -1,5 +1,7 @@
 # Übung 4 – Team-Sync
-**Tag 1 · 40 Minuten · alle gemeinsam in einem Repository auf gitlab.com**
+**Tag 1 · 35 Minuten · 👥 GEMEINSAM – alle zusammen im Hauptraum, ein Repository auf gitlab.com, der Trainer gibt den Takt vor**
+
+> **So funktioniert die Übung:** Alle klonen dasselbe Projekt `team-sync`. Jede/r arbeitet im **eigenen** Container, aber alle pushen auf **dasselbe** Remote. Der Trainer zählt im Chat herunter („3 – 2 – 1 – PUSH!“), damit alle gleichzeitig pushen: Nur der erste Push geht durch, alle anderen erleben die Ablehnung und lösen sie mit `git pull` + `git push`. Teil C wiederholt das mit einem echten Konflikt.
 
 🎯 **Ziel:** Zusammenarbeit über ein Remote erleben: abgelehnte Pushes, `pull --rebase`, echte Konflikte und Remote Branches.
 
