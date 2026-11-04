@@ -57,7 +57,7 @@
    git commit -m "feat: add() mit Test"
    ```
 
-✅ **Geschafft, wenn:** `git lg` zwei Commits mit Ihrem Namen zeigt und `git status` „nothing to commit, working tree clean“ meldet.
+✅ **Geschafft, wenn:** `git log` zwei Commits mit Ihrem Namen zeigt und `git status` „nothing to commit, working tree clean“ meldet.
 
 <details><summary>💡 Hinweis</summary>
 
