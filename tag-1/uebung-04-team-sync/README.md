@@ -40,15 +40,6 @@ git lg
 5. Aufräumen: Jede/r löscht **den eigenen** Remote-Branch (`git push origin --delete feature/<vorname>-idee`), danach alle: `git fetch --prune` und `git branch -r`
    ⏩ allein: `bash $SEMINAR/tag-1/uebung-04-team-sync/team-simulator.sh aufraeumen ~/seminar/team-sync.git`
 
-## Teil E – Team-Workflows einordnen (Whiteboard, 10')
-Ordnen Sie die Szenario-Karten dem passenden Workflow zu (GitHub Flow, GitLab Flow, Trunk-Based, Git Flow):
-- (a) Web-Shop, mehrere Deployments pro Tag
-- (b) On-Premise-Software, Kunden nutzen v3.x und v4.x parallel
-- (c) App mit Test-, Staging- und Produktionsumgebung
-- (d) erfahrenes Team mit Feature Flags und sehr guter Testabdeckung
-
-Und: Welcher Workflow passt zu **Ihrem** Team?
-
 ✅ **Geschafft, wenn:** `regeln.md` eine gemeinsame Lösung enthält, alle Mitglieder-Dateien in `main` sind und keine Feature-Branches mehr auf dem Remote existieren.
 
 ---
