@@ -12,7 +12,7 @@ Willkommen! Hier finden Sie alles für das Seminar und alles, um die Inhalte sp�
 
 ## 📥 Folien und Handout
 Unter **Releases** (rechte Seite der Repository-Seite) finden Sie zu jeder Version:
-- `Handout-Git-GitLab.pdf` – Spickzettel, alle Übungen, Glossar, Montags-Plan
+- `Handout_Tag1_Git.pdf` und `Handout_Tag2_GitLab.pdf` – Spickzettel, alle Übungen, Glossar, Montags-Plan
 - `Folien-Tag-1.pdf` und `Folien-Tag-2.pdf`
 
 ## 📁 Wo finde ich was?
