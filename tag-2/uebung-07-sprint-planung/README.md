@@ -35,9 +35,6 @@ Diese fünf Issues plant das Team:
     Der Maintainer wartet mit #1, denn die Pipeline bauen wir nach dem Mittag gemeinsam.
 9. Zeit buchen: im eigenen Issue `/spend 20m`
 
-## Teil C – Epics, Iterations, Roadmaps (Gespräch, 5')
-Ordnen Sie zu: „Neuer Checkout-Prozess über 3 Sprints“, „Sprint 47 (2 Wochen)“, „Release 2.3 am 30.11.“ → Epic, Iteration oder Milestone? (Epics, Iterations, Roadmaps und Burndown Charts sind Premium-Funktionen, siehe Folien.)
-
 ✅ **Geschafft, wenn:** fünf geschätzte Issues im Milestone `v1.0` stehen und die MRs zu #2 und #3 (Draft) mit Code existieren.
 
 ---
