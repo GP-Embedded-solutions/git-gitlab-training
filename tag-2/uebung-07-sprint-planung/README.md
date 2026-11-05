@@ -24,22 +24,18 @@ Diese fünf Issues plant das Team:
    - [ ] Test-Report im Merge Request
    ```
 
-~~## Teil B – Planning Poker (alle)
-5. Pro Issue schätzt jede/r **verdeckt** (Poker-Link im Chat, oder Zahl in den Chat tippen und erst auf „Jetzt!“ senden; Karten 1, 2, 3, 5, 8 Viertelstunden). Bei großen Unterschieden begründen die Höchst- und die Niedrigstschätzung, dann neu schätzen.
-6. Ergebnis per Quick Action ins Issue, z. B. `/estimate 45m` und `/assign @benutzername`~~
-
-## Teil C – Board & Branches
-7. *Plan → Issue boards*: Liste für Label `status::doing` anlegen.
-8. Jede/r zieht das **eigene** Issue (#1, #2, #3) auf „doing“ und klickt im Issue auf **Create merge request**.
-9. Lokal (Dev A/B im `team-calc`, Maintainer im eigenen `calc-service`):
+## Teil B – Board & Branches
+5. *Plan → Issue boards*: Liste für Label `status::doing` anlegen.
+6. Jede/r zieht das **eigene** Issue (#1, #2, #3) auf „doing“ und klickt im Issue auf **Create merge request**.
+7. Lokal (Dev A/B im `team-calc`, Maintainer im eigenen `calc-service`):
    ```bash
    git fetch && git switch <branch-name-aus-gitlab>      # z. B. 2-funktion-multiply
    ```
-10. Dev A implementiert `multiply()`, Dev B `power()`, jeweils mit Test, `python -m pytest` grün, Commit (`feat: …`) und push. **Noch nicht mergen.**
+8. Dev A implementiert `multiply()`, Dev B `power()`, jeweils mit Test, `python -m pytest` grün, Commit (`feat: …`) und push. **Noch nicht mergen.**
     Der Maintainer wartet mit #1, denn die Pipeline bauen wir nach dem Mittag gemeinsam.
-11. Zeit buchen: im eigenen Issue `/spend 20m`
+9. Zeit buchen: im eigenen Issue `/spend 20m`
 
-## Teil D – Epics, Iterations, Roadmaps (Gespräch, 5')
+## Teil C – Epics, Iterations, Roadmaps (Gespräch, 5')
 Ordnen Sie zu: „Neuer Checkout-Prozess über 3 Sprints“, „Sprint 47 (2 Wochen)“, „Release 2.3 am 30.11.“ → Epic, Iteration oder Milestone? (Epics, Iterations, Roadmaps und Burndown Charts sind Premium-Funktionen, siehe Folien.)
 
 ✅ **Geschafft, wenn:** fünf geschätzte Issues im Milestone `v1.0` stehen und die MRs zu #2 und #3 (Draft) mit Code existieren.
