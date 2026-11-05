@@ -7,12 +7,12 @@ Willkommen! Hier finden Sie alles für das Seminar und alles, um die Inhalte sp�
 
 ## 🚀 In 3 Schritten startklar
 1. **Vorbereitung erledigen:** [`00-vorbereitung/`](00-vorbereitung/README.md) (ca. 30–45 Minuten)
-2. **Seminar-Container starten:** `./container/seminar-start.sh` (Windows: `.\container\seminar-start.ps1`) oder GitHub Codespaces
+2. **Seminar-Container starten:** `./container/seminar-start.sh` (Windows: `.\container\seminar-start.ps1`)
 3. **Im Container:** `seminar-einrichten`, danach `seminar-check` → alles grün?
 
 ## 📥 Folien und Handout
 Unter **Releases** (rechte Seite der Repository-Seite) finden Sie zu jeder Version:
-- `Handout-Git-GitLab.pdf` – Spickzettel, alle Übungen, Glossar, Montags-Plan
+- `Handout_Tag1_Git.pdf` und `Handout_Tag2_GitLab.pdf` – Spickzettel, alle Übungen, Glossar, Montags-Plan
 - `Folien-Tag-1.pdf` und `Folien-Tag-2.pdf`
 
 ## 📁 Wo finde ich was?
