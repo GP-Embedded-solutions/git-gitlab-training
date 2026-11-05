@@ -1,4 +1,4 @@
-# Übung 9 – Container, Services & Tests
+# Übung 9 – Container, Services & Tests (BONUS)
 **Tag 2 · 25 Minuten · Teil A alle mit Docker, Teil B Maintainer teilt den Bildschirm**
 
 🎯 **Ziel:** das Projekt als Container bauen und die Pipeline um einen Service-Container (Datenbank) und den Image-Build erweitern.
