@@ -11,7 +11,19 @@ if ($NeuBauen -or $LASTEXITCODE -ne 0) {
   docker build -t $Image $Hier
   if ($LASTEXITCODE -ne 0) { exit 1 }
 }
-$args2 = @("run","-it","--rm","--name","git-seminar","--hostname","seminar","-v","git-seminar-home:/home/seminar","-v","${Repo}:/unterlagen:ro")
-if ($Docker) { $args2 += @("-v","/var/run/docker.sock:/var/run/docker.sock") }
-$args2 += $Image
-docker @args2
+# Der Container laeuft dauerhaft im Hintergrund (sleep infinity) - exit oder ein geschlossenes Fenster beendet
+# nur die Shell, nicht den Container. Jedes Fenster schaltet sich mit "docker exec" dazu.
+$Name = "git-seminar"
+docker container inspect $Name *> $null; $existiert = ($LASTEXITCODE -eq 0)
+if ($existiert -and ($NeuBauen -or ($Docker -and -not ((docker container inspect -f '{{range .Mounts}}{{.Destination}} {{end}}' $Name) -match "docker.sock")))) {
+  docker rm -f $Name *> $null; $existiert = $false     # neu anlegen - Ihre Dateien bleiben im Volume
+}
+if (-not $existiert) {
+  $args2 = @("run","-d","--init","--name",$Name,"--hostname","seminar","--restart","unless-stopped","-v","git-seminar-home:/home/seminar","-v","${Repo}:/unterlagen:ro")
+  if ($Docker) { $args2 += @("-v","/var/run/docker.sock:/var/run/docker.sock") }
+  $args2 += @($Image,"sleep","infinity")
+  docker @args2 *> $null
+} elseif ((docker container inspect -f '{{.State.Running}}' $Name) -ne "true") {
+  docker start $Name *> $null
+}
+docker exec -it $Name bash -l
