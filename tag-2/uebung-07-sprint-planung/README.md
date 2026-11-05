@@ -24,9 +24,9 @@ Diese fünf Issues plant das Team:
    - [ ] Test-Report im Merge Request
    ```
 
-## Teil B – Planning Poker (alle)
+~~## Teil B – Planning Poker (alle)
 5. Pro Issue schätzt jede/r **verdeckt** (Poker-Link im Chat, oder Zahl in den Chat tippen und erst auf „Jetzt!“ senden; Karten 1, 2, 3, 5, 8 Viertelstunden). Bei großen Unterschieden begründen die Höchst- und die Niedrigstschätzung, dann neu schätzen.
-6. Ergebnis per Quick Action ins Issue, z. B. `/estimate 45m` und `/assign @benutzername`
+6. Ergebnis per Quick Action ins Issue, z. B. `/estimate 45m` und `/assign @benutzername`~~
 
 ## Teil C – Board & Branches
 7. *Plan → Issue boards*: Liste für Label `status::doing` anlegen.
