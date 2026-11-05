@@ -1,4 +1,4 @@
-# Übung 10 – Team-Release v1.0.0
+# Übung 10 – Team-Release v1.0.0 (BONUS)
 **Tag 2 · 20 Minuten · alle, getauschte Rollen, ohne Hilfe des Trainers**
 
 🎯 **Ziel:** ein Feature vom Issue bis zum automatisch gebauten Release bringen.
